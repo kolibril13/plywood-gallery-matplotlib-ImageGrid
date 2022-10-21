@@ -1,0 +1,12 @@
+project_name: Plywood Gallery - Matplotlib ImageGrid
+repository_url: https://github.com/kolibril13/plywood-gallery-matplotlib-ImageGrid
+user_content_version: 3.5.1 (Matplotlib)
+description: |
+  Cheat sheet gallery for matplotlib ImageGrid
+favicon: icon.png
+preview_image: https://kolibril13.github.io/plywood-gallery-matplotlib-ImageGrid/preview_image.png
+gallery_parameters_path: gallery_assets_1_ImageGrid/gallery_parameters.json
+
+
+
+
