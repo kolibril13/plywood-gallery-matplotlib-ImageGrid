@@ -1,97 +1,97 @@
 {
   "Matplotlib ImageGrid": [
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_001_Header1.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_001_Header1.png",
       "celltype": "Header",
       "css": "border: 3px solid #ED6A5A;height: 150px; width: auto;",
       "code": "import matplotlib.pyplot as plt\nfrom mpl_toolkits.axes_grid1 import ImageGrid\nimport matplotlib\nimport numpy as np\n\n\ndef set_circle(array, radius, value):\n    x, y = np.indices(array.shape)\n    new_array = array.copy()\n    new_array[\n        (x - int(len(x) / 2)) ** 2 + (y - int(len(y) / 2)) ** 2 < radius**2\n    ] = value\n    return new_array\n\n\narray = np.zeros((101, 101))\nim1 = set_circle(array, 3 * 12, 1)\nim2 = set_circle(im1, 3 * 10, 2)\nim3 = set_circle(im2, 3 * 8, 3)\nim4 = set_circle(im3, 3 * 6, 4)"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_002_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_002_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 150px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(2, 2),\n    axes_pad=0.3,\n    label_mode=\"1\",\n    cbar_size=\"7%\",\n    cbar_pad=\"0%\",\n)\n\nfor ax, img, cax in zip(grid, [im1, im2, im3, im4], grid.cbar_axes):\n    im = ax.imshow(img, cmap=\"YlGnBu\")"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_003_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_003_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 150px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(2, 2),\n    axes_pad=(0.5, 0.2),  # (horizontal, vertical)\n    label_mode=\"1\",\n    cbar_location=\"right\",\n    cbar_mode=\"each\",\n    cbar_size=\"7%\",\n    cbar_pad=\"2%\",\n)\n\nfor ax, im, cax in zip(grid, [im1, im2, im3, im4], grid.cbar_axes):\n    img = ax.imshow(im, cmap=\"YlGnBu\")\n    cax.colorbar(img)\n\nfig.tight_layout()\nplt.show()"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_004_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_004_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 150px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(2, 2),\n    axes_pad=(0.5, 0.2),  # (horizontal, vertical)\n    label_mode=\"1\",\n    cbar_location=\"bottom\",\n    cbar_mode=\"each\",\n    cbar_size=\"7%\",\n    cbar_pad=\"2%\",\n)\n\nfor ax, im, cax in zip(grid, [im1, im2, im3, im4], grid.cbar_axes):\n    img = ax.imshow(im, cmap=\"YlGnBu\")\n    cax.colorbar(img)\n\nfig.tight_layout()\nplt.show()"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_005_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_005_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 150px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(2, 2),\n    axes_pad=(0.5, 0.2),  # (horizontal, vertical)\n    label_mode=\"1\",\n    cbar_location=\"top\",\n    cbar_mode=\"each\",\n    cbar_size=\"7%\",\n    cbar_pad=\"2%\",\n)\n\nfor ax, im, cax in zip(grid, [im1, im2, im3, im4], grid.cbar_axes):\n    img = ax.imshow(im, cmap=\"YlGnBu\")\n    cax.colorbar(img)\n\nfig.tight_layout()\nplt.show()"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_006_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_006_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 150px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(2, 2),\n    axes_pad=(0.5, 0.2),  # (horizontal, vertical)\n    label_mode=\"1\",\n    cbar_location=\"top\",\n    cbar_mode=\"each\",\n    cbar_size=\"7%\",\n    cbar_pad=\"2%\",\n)\n\nlimits = ((0, 2), (0, 3), (0, 10), (0, 30))\nfor ax, im, cax, vlim in zip(grid, [im1, im2, im3, im4], grid.cbar_axes, limits):\n    img = ax.imshow(im, cmap=\"YlGnBu\", vmin=vlim[0], vmax=vlim[1])\n    cax.colorbar(img)\n\nfig.tight_layout()\nplt.show()"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_007_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_007_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 150px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(2, 2),\n    axes_pad=(0.5, 0.2),  # (horizontal, vertical)\n    label_mode=\"1\",\n    cbar_location=\"top\",\n    cbar_mode=\"each\",\n    cbar_size=\"7%\",\n    cbar_pad=\"2%\",\n)\n\n\nvmax, vmin = np.max(im4), np.min(im4)\nnorm = matplotlib.colors.Normalize(vmax=vmax, vmin=vmin)\n\n\nfor ax, im, cax in zip(grid, [im1, im2, im3, im4], grid.cbar_axes):\n    img = ax.imshow(im, cmap=\"YlGnBu\", norm=norm)\n    cax.colorbar(img)\n\nfig.tight_layout()\nplt.show()"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_008_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_008_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 150px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(2, 2),\n    axes_pad=(0.2, 0.2),  # (horizontal, vertical)\n    label_mode=\"1\",\n    cbar_location=\"top\",\n    share_all=True,\n    cbar_mode=\"single\",\n    cbar_size=\"7%\",\n    cbar_pad=\"15%\",\n)\n\nvmax, vmin = np.max(im4), np.min(im4)\nnorm = matplotlib.colors.Normalize(vmax=vmax, vmin=vmin)\n\nfor ax, img, cax in zip(grid, [im1, im2, im3, im4], grid.cbar_axes):\n    im = ax.imshow(img, cmap=\"YlGnBu\", norm=norm)\nax.cax.colorbar(im)"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_009_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_009_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 150px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(2, 2),\n    axes_pad=(0.2, 0.2),  # (horizontal, vertical)\n    label_mode=\"1\",\n    cbar_location=\"bottom\",\n    share_all=True,\n    cbar_mode=\"single\",\n    cbar_size=\"7%\",\n    cbar_pad=\"15%\",\n)\n\nvmax, vmin = np.max(im4), np.min(im4)\nnorm = matplotlib.colors.Normalize(vmax=vmax, vmin=vmin)\n\nfor ax, img, cax in zip(grid, [im1, im2, im3, im4], grid.cbar_axes):\n    im = ax.imshow(img, cmap=\"YlGnBu\", norm=norm)\nax.cax.colorbar(im)"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_010_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_010_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 150px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(2, 2),\n    axes_pad=(0.2, 0.2),  # (horizontal, vertical)\n    label_mode=\"1\",\n    cbar_location=\"right\",\n    share_all=True,\n    cbar_mode=\"single\",\n    cbar_size=\"7%\",\n    cbar_pad=\"10%\",\n)\n\nvmax, vmin = np.max(im4), np.min(im4)\nnorm = matplotlib.colors.Normalize(vmax=vmax, vmin=vmin)\n\nfor ax, img, cax in zip(grid, [im1, im2, im3, im4], grid.cbar_axes):\n    im = ax.imshow(img, cmap=\"YlGnBu\", norm=norm)\nax.cax.colorbar(im)"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_011_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_011_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 150px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(2, 2),\n    axes_pad=(0.4, 0.4),  # (horizontal, vertical)\n    label_mode=\"L\",\n    cbar_location=\"right\",\n    share_all=True,\n    cbar_mode=\"single\",\n    cbar_size=\"7%\",\n    cbar_pad=\"10%\",\n)\n\nvmax, vmin = np.max(im4), np.min(im4)\nnorm = matplotlib.colors.Normalize(vmax=vmax, vmin=vmin)\n\nfor ax, img, cax in zip(grid, [im1, im2, im3, im4], grid.cbar_axes):\n    im = ax.imshow(img, cmap=\"YlGnBu\", norm=norm)\nax.cax.colorbar(im)"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_012_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_012_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 150px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(2, 2),\n    axes_pad=(0, 0.0),  # (horizontal, vertical)\n    cbar_location=\"right\",\n    label_mode=\"1\",\n    share_all=True,\n    cbar_mode=\"single\",\n    cbar_size=\"7%\",\n    cbar_pad=\"0%\",\n)\n\nvmax, vmin = np.max(im4), np.min(im4)\nnorm = matplotlib.colors.Normalize(vmax=vmax, vmin=vmin)\n\nfor ax, img, cax in zip(grid, [im1, im2, im3, im4], grid.cbar_axes):\n    im = ax.imshow(img, cmap=\"YlGnBu\", norm=norm)\nax.cax.colorbar(im)"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_013_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_013_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 150px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(2, 2),\n    axes_pad=0.05,\n    label_mode=\"1\",\n    share_all=False,\n    cbar_location=\"right\",\n    cbar_mode=\"single\",\n    cbar_size=\"10%\",\n    cbar_pad=0.05,\n)\nvmax, vmin = np.max(im4), np.min(im4)\nnorm = matplotlib.colors.Normalize(vmax=vmax, vmin=vmin)\n\nfor ax, img, cax in zip(grid, [im1, im2, im3, im4], grid.cbar_axes):\n    im = ax.imshow(img, cmap=\"YlGnBu\", norm=norm)\nax.cax.colorbar(im)\ngrid[2].set_xlabel(\"X\")\ngrid[2].set_ylabel(\"Y\")"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_014_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_014_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 70px; width: auto;",
       "code": "fig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(1, 4),\n    axes_pad=0.05,\n    label_mode=\"1\",\n    share_all=False,\n    cbar_location=\"right\",\n    cbar_mode=\"single\",\n    cbar_size=\"10%\",\n    cbar_pad=0.05,\n)\nvmax, vmin = np.max(im4), np.min(im4)\nnorm = matplotlib.colors.Normalize(vmax=vmax, vmin=vmin)\n\nfor ax, img, cax in zip(grid, [im1, im2, im3, im4], grid.cbar_axes):\n    im = ax.imshow(img, cmap=\"YlGnBu\", norm=norm)\nax.cax.colorbar(im)\ngrid[0].set_xlabel(\"X\")\ngrid[0].set_ylabel(\"Y\")"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_015_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_015_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 70px; width: auto;",
       "code": "from matplotlib.offsetbox import AnchoredText\n\nfig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(\n    fig,\n    111,\n    nrows_ncols=(1, 4),\n    axes_pad=0.05,\n    label_mode=\"1\",\n    share_all=False,\n    cbar_location=\"right\",\n    cbar_mode=\"single\",\n    cbar_size=\"10%\",\n    cbar_pad=0.05,\n)\nvmax, vmin = np.max(im4), np.min(im4)\nnorm = matplotlib.colors.Normalize(vmax=vmax, vmin=vmin)\nlabels = [\"a)\", \"b)\", \"c)\", \"d)\"]\nfor ax, img, cax, label in zip(grid, [im1, im2, im3, im4], grid.cbar_axes, labels):\n    im = ax.imshow(img, cmap=\"YlGnBu\", norm=norm)\n    at = AnchoredText(label, loc=\"lower left\", pad=0.0, borderpad=0.5, frameon=False)\n    ax.add_artist(at)\n    ax.axis(\"off\")\nax.cax.colorbar(im)"
     },
     {
-      "image_path": "gallery_assets_1_ImageGrid/Matplotlib_ImageGrid_016_Normal.png",
+      "image_path": "gallery_assets/Matplotlib_ImageGrid_016_Normal.png",
       "celltype": "Normal",
       "css": "border: 3px solid #007AB8;height: 70px; width: auto;",
       "code": "from matplotlib.offsetbox import AnchoredText\n\nfig = plt.figure(figsize=(4, 4))\ngrid = ImageGrid(fig, 111,\n                  nrows_ncols=(1, 4),\n                  axes_pad=0.05,\n                  label_mode=\"1\",\n                  share_all=False,\n                  cbar_location=\"right\",\n                  cbar_mode=\"single\",\n                  cbar_size=\"10%\",\n                  cbar_pad=0.05,\n                  )\nvmax, vmin = np.max(im4), np.min(im4)\nnorm = matplotlib.colors.Normalize(vmax=vmax, vmin=vmin)\nlabels = [\"a)\", \"b)\", \"c)\", \"d)\"]\nfor ax, img, cax, label in zip(grid, [im1, im2, im3, im4], grid.cbar_axes , labels):\n    im = ax.imshow(img, cmap=\"YlGnBu\", norm=norm)\n    at = AnchoredText(label, prop=dict(size=8), frameon=True, loc=&#39;upper left&#39;)\n    at.patch.set_boxstyle(\"round,pad=0.,rounding_size=0.0\")\n    ax.add_artist(at)\n    ax.axis(\"off\")\n\nax.cax.colorbar(im)"
